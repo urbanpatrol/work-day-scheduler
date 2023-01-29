@@ -38,26 +38,26 @@ var time = $(this).parent().attr("id");
 var text = $(this).siblings(".description").val();
 
 // Save the task/descriptor in local storage
-localStorage.setItem(hour, text);
+localStorage.setItem(time, text);
 })
 
 
 // Get item/s from local storage if any
-for (let i = 9; i <= 17; i++) {
-    let hour = `${i}-block`;
-    $(`#${hour} .description`).val(localStorage.getItem(hour));
-}
+// for (let i = 9; i <= 17; i++) {
+   // let hour = `${i}-block`;
+   // $(`#${hour} .description`).val(localStorage.getItem(hour));
+// }
 
-// $("#09-block .description").val(localStorage.getItem("09-block"));
-// $("#10-block .description").val(localStorage.getItem("10-block"));
-// $("#11-block .description").val(localStorage.getItem("11-block"));
-// $("#12-block .description").val(localStorage.getItem("12-block"));
-// $("#13-block .description").val(localStorage.getItem("13-block"));
-// $("#14-block .description").val(localStorage.getItem("14-block"));
-// $("#15-block .description").val(localStorage.getItem("15-block"));
-// $("#16-block .description").val(localStorage.getItem("16-block"));
-// $("#17-block .description").val(localStorage.getItem("17-block"));
-//console.log("09-block");
+$("#09-block .description").val(localStorage.getItem("09-block"));
+$("#10-block .description").val(localStorage.getItem("10-block"));
+$("#11-block .description").val(localStorage.getItem("11-block"));
+$("#12-block .description").val(localStorage.getItem("12-block"));
+$("#13-block .description").val(localStorage.getItem("13-block"));
+$("#14-block .description").val(localStorage.getItem("14-block"));
+$("#15-block .description").val(localStorage.getItem("15-block"));
+$("#16-block .description").val(localStorage.getItem("16-block"));
+$("#17-block .description").val(localStorage.getItem("17-block"));
+console.log("09-block");
 
 trackTime();
 })
