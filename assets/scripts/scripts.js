@@ -8,7 +8,7 @@ var timeCurrent = moment().hour();
 
 // Loop time over each hourly block
 $(".time-block").each(function() {
-    var blockTime = parseInt($(this).attr("class").split("hour")[1]);
+    var blockTime = parseInt($(this).attr("id").split("hour")[1]);
     // then compare current time to each block to add .past, .present and .future classes for the background colour
     if (blockTime < timeCurrent) {
         $(this).removeClass("future");
@@ -38,20 +38,25 @@ var time = $(this).parent().attr("id");
 var text = $(this).siblings(".description").val();
 
 // Save the task/descriptor in local storage
-localStorage.setItem(time, text);
+localStorage.setItem(hour, text);
 })
 
 
 // Get item/s from local storage if any
-$("#09-block .description").val(localStorage.getItem("09-block"));
-$("#10-block .description").val(localStorage.getItem("10-block"));
-$("#11-block .description").val(localStorage.getItem("11-block"));
-$("#12-block .description").val(localStorage.getItem("12-block"));
-$("#13-block .description").val(localStorage.getItem("13-block"));
-$("#14-block .description").val(localStorage.getItem("14-block"));
-$("#15-block .description").val(localStorage.getItem("15-block"));
-$("#16-block .description").val(localStorage.getItem("16-block"));
-$("#17-block .description").val(localStorage.getItem("17-block"));
+for (let i = 9; i <= 17; i++) {
+    let hour = `${i}-block`;
+    $(`#${hour} .description`).val(localStorage.getItem(hour));
+}
+
+// $("#09-block .description").val(localStorage.getItem("09-block"));
+// $("#10-block .description").val(localStorage.getItem("10-block"));
+// $("#11-block .description").val(localStorage.getItem("11-block"));
+// $("#12-block .description").val(localStorage.getItem("12-block"));
+// $("#13-block .description").val(localStorage.getItem("13-block"));
+// $("#14-block .description").val(localStorage.getItem("14-block"));
+// $("#15-block .description").val(localStorage.getItem("15-block"));
+// $("#16-block .description").val(localStorage.getItem("16-block"));
+// $("#17-block .description").val(localStorage.getItem("17-block"));
 //console.log("09-block");
 
 trackTime();
